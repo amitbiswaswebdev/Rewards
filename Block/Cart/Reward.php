@@ -53,7 +53,8 @@ class Reward extends Template
     public function canShow(): bool
     {
         $canShow = false;
-        if ($this->rewardsConfig->isEnabled() &&
+        if (
+            $this->rewardsConfig->isEnabled() &&
             $this->customerSession->isLoggedIn() &&
             $this->getRewardPoints() > 0
         ) {
@@ -94,7 +95,7 @@ class Reward extends Template
         if ($this->checkoutSession->hasQuote()) {
             $quote = $this->checkoutSession->getQuote();
             $rewardParam = $quote->getData('easy_mage_reward_params');
-            $applied = ($rewardParam);
+            $applied = ($rewardParam !== null);
         }
 
         return $applied;
