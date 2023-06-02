@@ -1,0 +1,33 @@
+<div class="payment-option _collapsible opc-payment-additional reward-code"
+    data-bind="mageInit: {'collapsible':{'openedState': '_active'}}">
+    <div class="payment-option-title field choice" data-role="title">
+        <span class="action action-toggle" id="block-reward-heading" role="heading" aria-level="2">
+            <!-- ko i18n: 'Apply Reward Code'--><!-- /ko -->
+        </span>
+    </div>
+    <div class="payment-option-content" data-role="content">
+        <!-- ko foreach: getRegion('messages') -->
+        <!-- ko template: getTemplate() --><!-- /ko -->
+        <!--/ko-->
+        <form class="form form-reward" id="reward-form">
+            <div class="actions-toolbar">
+                <div class="primary">
+                    <!-- ko ifnot: isApplied() -->
+                    <button class="action action-apply" type="submit"
+                        data-bind="'value': $t('Apply Reward'), click: apply">
+                        <span><!-- ko i18n: 'Apply Reward'--><!-- /ko --></span>
+                    </button>
+                    <!-- /ko -->
+                    <!-- ko if: isApplied() -->
+                    <button class="action action-cancel" type="submit" data-bind="'value': $t('Cancel'), click: cancel">
+                        <span><!-- ko i18n: 'Cancel Reward'--><!-- /ko --></span>
+                    </button>
+                    <!-- /ko -->
+                </div>
+                <!-- ko foreach: getRegion('captcha') -->
+                <!-- ko template: getTemplate() --><!-- /ko -->
+                <!-- /ko -->
+            </div>
+        </form>
+    </div>
+</div>

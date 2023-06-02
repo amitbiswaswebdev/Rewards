@@ -1,0 +1,46 @@
+{
+    "name": "easy-mage/module-rewards",
+    "version": "1.0.0",
+    "description": "This module provides reward functionality to magento application",
+    "keywords": [
+        "magento 2",
+        "magento",
+        "reward",
+        "discount",
+        "checkout",
+        "order",
+        "marketing"
+    ],
+    "type": "magento2-module",
+    "require": {
+        "php": "^8.1",
+        "magento/framework": "^103.0.5-p1",
+        "easy-mage/module-core": "^1.0.0"
+    },
+    "minimum-stability": "stable",
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "EasyMage\\Rewards\\": ""
+        }
+    },
+    "authors": [
+        {
+            "name": "Amit Biswas",
+            "email": "amit.biswas.webdev@gmail.com",
+            "role": "Magento 2 Extension Developer"
+        }
+    ],
+    "license": [
+        "OSL-3.0",
+        "AFL-3.0"
+    ],
+    "support": {
+        "issues": "https://github.com/amitbiswaswebdev/IndexerDetails/issues"
+    },
+    "suggest": {
+        "magento/project-community-edition": "*"
+    }
+}

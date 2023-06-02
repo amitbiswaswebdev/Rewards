@@ -1,0 +1,34 @@
+<?php
+use Magento\Framework\Escaper;
+use EasyMage\Rewards\Block\Cart\Reward;
+
+/* @var $block Reward */
+/** @var Escaper $escaper */
+?>
+<?php if ($block->canShow()): ?>
+    <form action="<?= $escaper->escapeUrl($block->getUrl('reward/discount/rewardPost')) ?>" method="post"
+        id="easy-reward-cart-form" style="display:flex;margin-top:12px" data-mage-init='{"rewardSubmit":{
+                    "easyRewardFormSelector": "#easy-reward-cart-form",
+                    "easyRemoveRewardSelector": "#easy-remove-reward",
+                    "easyApplyRewardButton": "button.action.reward.apply",
+                    "easyRemoveRewardButton": "button.action.reward.remove"}}'>
+        <?= $block->getBlockHtml('formkey') ?>
+        <input type="hidden" name="remove" id="easy-remove-reward"
+               value="<?= $escaper->escapeHtmlAttr($block->canRemove()) ?>" />
+        <?php if ((bool) $block->canRemove()): ?>
+            <button class="button action reward remove" type="submit" style="flex-grow: 1"
+                value="<?= $escaper->escapeHtmlAttr(__('Remove your rewards points')) ?>">
+                <span>
+                    <?= $escaper->escapeHtml(__('Remove your rewards points')) ?>
+                </span>
+            </button>
+        <?php else: ?>
+            <button class="button action reward apply" type="submit" style="flex-grow: 1"
+                value="<?= $escaper->escapeHtmlAttr(__('Apply your rewards points')) ?>">
+                <span>
+                    <?= $escaper->escapeHtml(__('Apply your rewards points')) ?>
+                </span>
+            </button>
+        <?php endif ?>
+    </form>
+<?php endif; ?>

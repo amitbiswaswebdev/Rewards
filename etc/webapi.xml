@@ -1,0 +1,29 @@
+<?xml version="1.0" ?>
+<!--
+  ~ Copyright © 2023 EasyMage. All rights reserved.
+  ~
+  ~ @author    Amit Biswas <amit.biswas.webdev@gmail.com>
+  ~ @copyright 2023 EasyMage
+  ~ @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+  -->
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Webapi:etc/webapi.xsd">
+    <route url="/V1/easy/reward/cancel/:quoteId" method="DELETE">
+        <service class="EasyMage\Rewards\Api\Discount\RewardInterface" method="cancel"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="quoteId" force="false">%quote_id%</parameter>
+        </data>
+    </route>
+    <route url="/V1/easy/reward/apply/:quoteId" method="PUT">
+        <service class="EasyMage\Rewards\Api\Discount\RewardInterface" method="apply"/>
+        <resources>
+            <resource ref="self" />
+        </resources>
+        <data>
+            <parameter name="quoteId" force="false">%quote_id%</parameter>
+        </data>
+    </route>
+</routes>

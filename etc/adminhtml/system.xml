@@ -1,0 +1,65 @@
+<?xml version="1.0"?>
+<!--
+  ~ Copyright © 2023 EasyMage. All rights reserved.
+  ~
+  ~ @author    Amit Biswas <amit.biswas.webdev@gmail.com>
+  ~ @copyright 2023 EasyMage
+  ~ @license   http://opensource.org/licenses/osl-3.0.php  Open Software License (OSL 3.0)
+  -->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="easy_mage" translate="label" type="text"
+                 sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Rewards</label>
+            <tab>easy_mage</tab>
+            <resource>EasyMage_Rewards::config_easy_mage_rewards</resource>
+            <group id="general" translate="label" type="text"
+                   sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>General</label>
+                <field id="enabled" translate="label" type="select"
+                       sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enabled?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="point_equivalent_percentage" translate="label comment" type="text"
+                       sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Reward point equivalent percentage</label>
+                    <comment>The equivalent percentage of each reward point.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <field id="max_discount" translate="label comment" type="text"
+                       sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Maximum discount percentage</label>
+                    <comment>The maximum percentage of the cart subtotal that can be applied.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+            </group>
+            <group id="order" translate="label" type="text"
+                   sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="0">
+                <label>Order</label>
+                <field id="enabled" translate="label" type="select"
+                       sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Enabled?</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+                <field id="amount" translate="label comment" type="text"
+                       sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="0" canRestore="1">
+                    <label>Reward point on per X amount</label>
+                    <comment>Earn one reward point on ordering per X amount.</comment>
+                    <depends>
+                        <field id="enabled">1</field>
+                    </depends>
+                </field>
+                <depends>
+                    <field id="easymage/general/enabled">1</field>
+                </depends>
+            </group>
+        </section>
+    </system>
+</config>
