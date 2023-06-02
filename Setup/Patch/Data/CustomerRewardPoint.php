@@ -75,9 +75,11 @@ class CustomerRewardPoint implements DataPatchInterface
 
         $attribute = $customerSetup->getEavConfig()->getAttribute(Customer::ENTITY, 'reward_point');
         if ($attribute) {
-            $attribute->addData(['used_in_forms' => [
-                'adminhtml_customer'
-            ]]);
+            $attribute->addData([
+                'used_in_forms' => [
+                    'adminhtml_customer'
+                ]
+            ]);
             $attribute->addData([
                 'attribute_set_id' => $attributeSetId,
                 'attribute_group_id' => $attributeGroupId

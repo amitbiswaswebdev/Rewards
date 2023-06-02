@@ -14,7 +14,7 @@ use EasyMage\Rewards\Block\Cart\Reward;
                     "easyRemoveRewardButton": "button.action.reward.remove"}}'>
         <?= $block->getBlockHtml('formkey') ?>
         <input type="hidden" name="remove" id="easy-remove-reward"
-               value="<?= $escaper->escapeHtmlAttr($block->canRemove()) ?>" />
+            value="<?= $escaper->escapeHtmlAttr($block->canRemove()) ?>" />
         <?php if ((bool) $block->canRemove()): ?>
             <button class="button action reward remove" type="submit" style="flex-grow: 1"
                 value="<?= $escaper->escapeHtmlAttr(__('Remove your rewards points')) ?>">

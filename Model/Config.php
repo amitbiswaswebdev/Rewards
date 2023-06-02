@@ -90,7 +90,7 @@ class Config
      */
     public function isEnabledOnOrder(int $websiteId = null): bool
     {
-        return $this->isEnabled($websiteId) && (bool)$this->scopeConfig->getValue(
+        return $this->isEnabled($websiteId) && (bool) $this->scopeConfig->getValue(
             self::XML_PATH_REWARD_IS_ENABLE_ON_ORDER,
             ScopeInterface::SCOPE_WEBSITE,
             $websiteId,

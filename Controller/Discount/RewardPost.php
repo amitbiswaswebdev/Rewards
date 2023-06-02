@@ -42,14 +42,14 @@ class RewardPost implements HttpPostActionInterface
      * @param RewardInterface $reward
      */
     public function __construct(
-        protected readonly Validator         $formKeyValidator,
-        protected readonly RequestInterface  $request,
-        protected readonly RedirectFactory   $resultRedirectFactory,
+        protected readonly Validator $formKeyValidator,
+        protected readonly RequestInterface $request,
+        protected readonly RedirectFactory $resultRedirectFactory,
         protected readonly RedirectInterface $redirect,
-        protected readonly ManagerInterface  $messageManager,
-        protected readonly CustomerSession   $customerSession,
-        protected readonly CheckoutSession   $checkoutSession,
-        protected readonly RewardInterface   $reward
+        protected readonly ManagerInterface $messageManager,
+        protected readonly CustomerSession $customerSession,
+        protected readonly CheckoutSession $checkoutSession,
+        protected readonly RewardInterface $reward
     ) {
     }
 
@@ -69,10 +69,10 @@ class RewardPost implements HttpPostActionInterface
                 $params = $this->getRequest()->getPostValue();
                 if (array_key_exists('remove', $params)) {
                     if ($params['remove']) {
-                        $this->reward->removeByCustomerId((int)$customerId);
+                        $this->reward->removeByCustomerId((int) $customerId);
                         $this->messageManager->addSuccessMessage(__("Reward points removed from your cart."));
                     } else {
-                        $this->reward->applyByCustomerId((int)$customerId);
+                        $this->reward->applyByCustomerId((int) $customerId);
                         $this->messageManager->addSuccessMessage(__("Reward points applied to your cart."));
                     }
                 } else {
